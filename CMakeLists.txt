@@ -1,0 +1,4 @@
+add_library(uincampus_core
+   src/version.cpp
+   src/regles.cpp
+   src/saisie.cpp)
