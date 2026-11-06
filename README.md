@@ -1,4 +1,4 @@
-# UIN-CAMPUS
+# UIN-CAMPUS_core
 
 ## Versions des outils
  -g++ 14.2.0

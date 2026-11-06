@@ -1,3 +1,7 @@
+#include "uincampus/regles.hpp"
+#include "uincampus/saisie.hpp"
+#include "uincampus/version.hpp"
+
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -62,7 +66,7 @@ int main()
 std::cout << "Nom de l'UE : ";
 std::string ue;
 std::getline(std::cin, ue);
-const int nb = LireEntier("Nombre d'étudiants (1 à 200) : ", 1, 200);
+const int nb = uin::lireEntier("Nombre d'étudiants (1 à 200) : ", 1, 200);
 // exercice 6
 std::vector<double> notes;
 for (int i{1}; i <= nb; ++i) {
