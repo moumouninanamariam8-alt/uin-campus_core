@@ -13,11 +13,16 @@
 #include <string_view>
 #include <vector>
 
+// ---------------1. Constantes et enumeration ---------------
+
 enum class Mention { Ajourne, Passable, AssezBien, Bien, TresBien };
 constexpr std::size_t nbMentions = 5;
 constexpr double noteMin = 0.0;
 constexpr double noteMax = 20.0;
 constexpr double seuilValidation = 10.0;
+
+// ------------------- 2. Mentions -------------------
+
 Mention mentionPour(double note)
 {
 if (note < seuilValidation) { return Mention::Ajourne; }
@@ -38,6 +43,8 @@ case TresBien:return "Tres bien";
 }
 return "Inconnue";
 }
+//----------------- 3. Saisie robuste -----------------------
+
 double lireNote(std::string_view invite)
 {
 while (true) {
@@ -61,6 +68,9 @@ return note;
 }
 }
 }
+
+//------------------------ 4.Programme Principal -----------------------
+
 int main()
 {
 std::cout << "Nom de l'UE : ";
@@ -72,6 +82,9 @@ std::vector<double> notes;
 for (int i{1}; i <= nb; ++i) {
 notes.push_back(lireNote(std::format("Note de l'étudiant {} : ", i)));
 }
+
+// ---------------------- 5. Calculs -----------------------
+
 double minimum{noteMax};
 double maximum{noteMin};
 double somme{0.0};
@@ -90,6 +103,9 @@ double sommeEcarts{0.0};
 for (double n : notes) {
 sommeEcarts += (n - moyenne) * (n - moyenne);
 }
+
+//------------------------ 7. Affichage -----------------------
+
 const double ecartType = std::sqrt(sommeEcarts / taille);
 std::println("\nStatistiques — {} ({} étudiants)", ue, nb);
 std::println("{:‐<58}", "");
